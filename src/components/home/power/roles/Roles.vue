@@ -92,6 +92,17 @@
     <!-- 分配权限的对话框 -->
     <el-dialog title="分配权限" :visible.sync="SetRightDialogVisible" width="50%" @close="SetRightDialogVisibleClosed">
       <!-- 树形控件 -->
+      <!--
+        data: 数据源(是一个数组)
+        show-checkbox: 选择框展示
+        node-key: 每个节点的唯一标识，通常是data数据源中的key名id
+        default-expanded-keys: 默认展开(要展开的节点的id)
+        default-checked-keys：要选择的节点的id
+        props: 配置项{label,children}
+        label：节点的文字标题
+        children：节点的子节点
+        label 和 children的值都源于data绑定的数据源中的该数据的key名 'label' 和 'children'
+      -->
       <el-tree :data="rightsList" :props="treeProps" show-checkbox node-key="id" :default-expand-all="true" :default-checked-keys="defKeys" ref="treeRef"></el-tree>
       <span slot="footer" class="dialog-footer">
         <el-button @click="SetRightDialogVisible = false">取 消</el-button>
